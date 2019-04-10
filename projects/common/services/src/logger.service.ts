@@ -53,12 +53,12 @@ export class CommonLogger extends AbstractHttpService {
    * @param message A JavaScript object, nesting is fine, with `event` property
    * set.
    */
-  public log(message: LogMessage) {
+  public log<T extends CommonLogMessage>(message: T) {
     this.setSeverity(SeverityLevels.INFO);
     return this._sendLog(message);
   }
 
-  public logError(errorMessage: LogMessage) {
+  public logError<T extends CommonLogMessage>(errorMessage: T) {
     this.setSeverity(SeverityLevels.ERROR);
     return this._sendLog(errorMessage);
   }
@@ -84,7 +84,7 @@ export class CommonLogger extends AbstractHttpService {
    * @param message A JavaScript object or anything that can be toString()'d,
    * like Date
    */
-  private _sendLog(message: LogMessage) {
+  private _sendLog<T extends CommonLogMessage>(message: T) {
     // Update headers
     this.setTimestamp();
     this.setTags(message);
@@ -140,7 +140,7 @@ export class CommonLogger extends AbstractHttpService {
    * The headers are easier to search in splunk, and we aren't using tags, so
    * repurpose it to event type.
    */
-  private setTags(message: LogMessage) {
+  private setTags(message: {event: string}) {
     this._headers = this._headers.set('tags', message.event);
   }
 
@@ -152,9 +152,10 @@ enum SeverityLevels {
   ERROR = 'error',
 }
 
-interface LogMessage {
+export interface CommonLogMessage {
   /** The type of event being logged. `eligibilityCheck` is standalone because it is neither a submission nor error. */
-  event: 'navigation' | 'error' | 'submission' | 'eligibilityCheck';
+  // event: 'navigation' | 'error' | 'submission' | 'eligibilityCheck'; // TODO - ORIG REMOVE
+  event: string; // TODO - VERIFY IF CAN SUBCLASS INTO STRING LITERALS
   // We allow any other properties/values in the interface
   [key: string]: any;
 }
