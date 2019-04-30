@@ -22,6 +22,23 @@ import { PostalCodeComponent } from './components/postal-code/postal-code.compon
 import { PageSectionComponent } from './components/page-section/page-section.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { PhnComponent } from './components/phn/phn.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { PhoneNumberComponent } from './components/phone-number/phone-number.component';
+import { PersonCardComponent } from './components/person-card/person-card.component';
+import { SinComponent } from './components/sin/sin.component';
+import { GenderComponent } from './components/gender/gender.component';
+import { AmountComponent } from './components/amount/amount.component';
+import { ButtonGroupComponent } from './components/button-group/button-group.component';
+import { AddressCardComponent } from './components/address-card/address-card.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
+import { NameComponent } from './components/name/name.component';
+import { AddressComponent } from './components/address/address.component';
+import { TypeaheadModule  } from 'ngx-bootstrap';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { AccordionCommonComponent } from './components/accordion/accordion.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   imports: [
@@ -32,7 +49,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgxMyDatePickerModule.forRoot(),
     ModalModule.forRoot(),
     TextMaskModule,
-    NgSelectModule
+    NgSelectModule,
+    TypeaheadModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   declarations: [
     CoreBreadcrumbComponent,
@@ -50,7 +69,22 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormSubmitBarComponent,
     PostalCodeComponent,
     PageSectionComponent,
-    DropdownComponent
+    DropdownComponent,
+    CalculatorComponent,
+    PhnComponent,
+    CheckboxComponent,
+    PhoneNumberComponent,
+    PersonCardComponent,
+    SinComponent,
+    GenderComponent,
+    AmountComponent,
+    ButtonGroupComponent,
+    AddressCardComponent,
+    ToggleComponent,
+    NameComponent,
+    AddressComponent,
+    AccordionCommonComponent,
+    ButtonComponent
   ],
   exports: [
     CoreBreadcrumbComponent,
@@ -68,7 +102,20 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormSubmitBarComponent,
     PostalCodeComponent,
     PageSectionComponent,
-    DropdownComponent
+    DropdownComponent,
+    CheckboxComponent,
+    PhoneNumberComponent,
+    PersonCardComponent,
+    SinComponent,
+    GenderComponent,
+    AmountComponent,
+    ButtonGroupComponent,
+    CalculatorComponent,
+    PhnComponent,
+    NameComponent,
+    AddressComponent,
+    AccordionCommonComponent,
+    ButtonComponent
   ],
   providers: [
     NgForm

@@ -1,0 +1,13 @@
+<div class="row" >
+  <div class="col-sm-4" [innerHtml]="label">
+  </div>
+  <div class="col-sm-8">
+      <strong>
+          <span>{{address.street}}<br></span>
+          <!--<span *ngIf="address.addressLine2 != null">{{address.street}}<br></span>
+          <span *ngIf="address.addressLine3 != null">{{address.addressLine3}}<br></span>-->
+          <span>{{address.city}}, {{address.province}}, {{address.postal}}<br></span> 
+          <span>{{address.country}}</span>
+      </strong>
+  </div>
+</div>
