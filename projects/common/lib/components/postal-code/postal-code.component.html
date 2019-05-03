@@ -1,14 +1,15 @@
 <label class="control-label">{{label}}</label>
 <div *ngIf="displayMask; else NoMask">
 <input #postalRef="ngModel"
+       [pattern]="isBCPostalCode?PostalCodeBCRegEx:''"
        class="form-control"
        spellcheck="false"
        type="text"
        id="postalCode_{{objectId}}"
        name="postalCode_{{objectId}}"
        [placeholder]="placeholder"
-       [ngModel]="value"
-       (ngModelChange)="onUpdate($event)"
+       [ngModel]="postalCode"
+       (ngModelChange)="setPostalCode($event)"
        [textMask]="{mask: mask, pipe: upperCasePipe}"
        [required]="required"
        [disabled]="disabled" />
@@ -32,7 +33,7 @@
          id="postalCode_{{objectId}}"
          name="postalCode_{{objectId}}"
          [ngModel]="value"
-         (ngModelChange)="onUpdate($event)"
+         (ngModelChange)="setPostalCode($event)"
          [required]="required"
          [disabled]="disabled"/>
 

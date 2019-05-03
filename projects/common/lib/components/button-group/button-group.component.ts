@@ -12,6 +12,7 @@ export class ButtonGroupComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() label: string = 'Default Checkbox';
   @Input() checked: boolean =  false ;
+  @Input() styleClass: string ;
   @Output() dataChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChild('buttonGroup') buttonGroup: ElementRef;
 

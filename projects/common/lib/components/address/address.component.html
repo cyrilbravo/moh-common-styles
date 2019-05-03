@@ -53,7 +53,7 @@
       </div>
     </div>
   </div>
-
+<!--
   <div class="form-group col-sm-8 p-sm-0">
       <label for="province_{{objectId}}">Province/State</label>
       <div *ngIf="isCanadaUSA(); else NotCanadaUSA">
@@ -72,7 +72,7 @@
                    bindLabel='description'></ng-select>
     
     
-        <!-- Error messages for select -->
+       Error messages for select 
         <div *ngIf="!disabled && provRef.touched"
             role="alert"
             class="error-container"
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <div class="form-group col-sm-8 p-sm-0">
+  <!--  <div class="form-group col-sm-8 p-sm-0">
         <label for="country_{{objectId}}">Country</label>
         <div *ngIf="isCanadaUSA(); else NotCanadaCountry">
       
@@ -102,7 +102,7 @@
                      bindLabel='description'></ng-select>
       
       
-          <!-- Error messages for select -->
+          Error messages for select 
           <div *ngIf="!disabled && countryRef.touched"
               role="alert"
               class="error-container"
@@ -116,7 +116,7 @@
   
   
 
-  <!--  <div class="form-group col-sm-8 p-sm-0">
+    <div class="form-group col-sm-8 p-sm-0">
         <label for="country_{{objectId}}">Country</label>
       
         <ng-select #countryRef='ngModel'
@@ -133,14 +133,28 @@
       
       </div> -->
   
-  <div class="form-group col-sm-4 p-sm-0">
-    <common-postal-code [label]="'Postal Code'"
-                        [displayMask]="isCanada()"
-                        [disabled]="disabled"
-                        [(value)]="postalCode"></common-postal-code>
+
+  <div class="form-group col-sm-8 p-sm-0">
+      <common-country #countryRef
+          [country]="address?.country"
+          (onChange)="setCountry($event)">
+      </common-country>
   </div>
 
-  <!-- Template for Province -->
+  <div class="form-group col-sm-8 p-sm-0">
+      <common-province #provRef
+              [province]="address?.province"
+              (onChange)="setProvince($event)">
+      </common-province>
+  </div>
+
+  <div class="form-group col-sm-4 p-sm-0">
+      <common-postal-code [label]="'Postal Code 23'"
+                          [postalCode]="address?.postal"
+                          (onChange)="setPostal($event)"></common-postal-code>
+  </div>
+  
+  <!-- Template for Province 
   <ng-template #NotCanadaUSA>
     <input #provRef="ngModel"
            class="form-control"
@@ -154,7 +168,7 @@
            [disabled]="disabled"
            maxlength="{{PROV_MAXLEN}}"/>
   
-    <!-- Error messages for select -->
+    <!-- Error messages for select 
     <div *ngIf="!disabled && provRef.touched"
         role="alert"
         class="error-container"
@@ -165,7 +179,7 @@
     </div>
   </ng-template>
 
-<!-- Template for Country   -->
+<!-- Template for Country   
   <ng-template #NotCanadaCountry>
       <input #countryRef="ngModel"
              class="form-control"
@@ -179,7 +193,7 @@
              [disabled]="disabled"
              maxlength="{{CITY_MAXLEN}}"/>
     
-      <!-- Error messages for select -->
+      <!-- Error messages for select 
       <div *ngIf="!disabled && countryRef.touched"
           role="alert"
           class="error-container"
@@ -188,7 +202,9 @@
           Country is required.
         </div>
       </div>
-    </ng-template>
+    </ng-template>-->
+
+
   
   <ng-template #noGeoCoder>
     <input class="form-control"

@@ -70,6 +70,7 @@ export class AddressComponent extends Base implements OnInit, OnChanges, Control
   @Input() disabled: boolean = false;
   @Input() isRequired: boolean = false;
   @Input() address: Address = new Address();
+  @Input() mailingAddress: Address = new Address();
   @Input() countryList: CountryList[];
   @Input() defaultCountry: string = 'Canada';
   @Input() provinceList: ProvinceList[];
@@ -77,7 +78,7 @@ export class AddressComponent extends Base implements OnInit, OnChanges, Control
 
   @Output() addressChange: EventEmitter<Address> = new EventEmitter<Address>();
 
-  public onModelChange: any;
+  //public onModelChange: any;
   public onTouch: any;
 
   /** Search string to store result from GeoCoder request */
@@ -115,9 +116,9 @@ export class AddressComponent extends Base implements OnInit, OnChanges, Control
    * @param value
    */
   setCountry(value: string) {
-    this.address.province = this.setDefaultProvinceAsOption(value);
+   // this.address.province = this.setDefaultProvinceAsOption(value);
     this.address.country = value;
-    this.updateProvList();
+   // this.updateProvList();
     this.addressChange.emit(this.address);
     //this.onModelChange(this.address);
     this.onTouch();
@@ -133,31 +134,38 @@ export class AddressComponent extends Base implements OnInit, OnChanges, Control
   setStreetAddress(value: string) {
     this.address.street = value;
     this.addressChange.emit(this.address);
-    this.onModelChange(this.address);
+  //  this.onModelChange(this.address);
     this.onTouch();
   }
 
   setCity(value: string) {
     this.address.city = value;
     this.addressChange.emit(this.address);
-    this.onModelChange(this.address);
+//    this.onModelChange(this.address);
     this.onTouch();
   }
 
-  get postalCode() {
+  setPostal(value: string) {
+    this.address.postal = value;
+    this.addressChange.emit(this.address);
+//    this.onModelChange(this.address);
+    this.onTouch();
+  }
+
+  /*get postalCode() {
     return this.address.postal;
   }
 
   /**
    * Sets string after converted upper case
    * @param text
-   */
-  set postalCode(value: string) {
+     set postalCode(value: string) {
     this.address.postal = value.toUpperCase();
     this.addressChange.emit(this.address);
     this.onModelChange(this.address);
     this.onTouch();
-  }
+  } */
+
 
   isCanada(): boolean {
     return this.address && 'CAN' === this.address.country;
@@ -269,16 +277,18 @@ export class AddressComponent extends Base implements OnInit, OnChanges, Control
     this.address.province = 'BC';
     this.address.country = 'CAN';
     this.addressChange.emit(this.address);
-    this.onModelChange(this.address);
+//    this.onModelChange(this.address);
     this.onTouch();
   }
 
   writeValue(addr: Address) {
     this.address = addr;
   }
+  
   registerOnChange(fn: any): void {
-    this.onModelChange = fn;
+    //this.onModelChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }

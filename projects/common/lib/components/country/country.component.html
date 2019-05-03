@@ -1,0 +1,23 @@
+<form #formRef='ngForm' novalidate>
+    <div class="form-group"
+         [ngClass]="{'has-error': (country === undefined || country === null || country?.trim().length <1) && (countryRef.touched || showError)}">
+    <label for="country{{objectId}}" class="control-label">Country</label>
+
+        <input #countryRef="ngModel" [(ngModel)]='country'
+                placeholder="Canada"
+                (typeaheadOnSelect)="updateModel($event)"
+                (typeaheadOnBlur)="updateModel($event)"
+                [typeahead]="countryData"
+                typeaheadOptionField="name"
+                [minlength]="1"
+                [typeaheadMinLength] = "0" [typeaheadScrollable] = "false"
+                [maxlength]="25"  (typeaheadNoResults)="typeaheadNoResults($event)"
+                [required]="true"
+                class="form-control" id="country{{objectId}}" name="country" #countryRef="ngModel" />
+
+        <div *ngIf='countryRef.touched || showError' role="alert" aria-live="assertive">
+            <div class="text-danger" *ngIf="countryRef.errors?.required">Country is required</div>
+            <div class="text-danger" *ngIf="countryRef.errors?.pattern">Country cannot be more than 25 characters</div>
+        </div>
+    </div>
+</form>

@@ -1,5 +1,5 @@
 <div role="dialog" aria-labelledby="q1">
-  <p id="q1" class="intro" [innerHtml]="label"></p>
+  <p id="q1" class="styleClass">{{label}}</p>
   <div class="btn-group" role="group">
       <button #buttonGroup [class.msp-btn-radio]="data === true" (click)="dataChange.emit(true)"
           type="button" class="btn btn-default" tabindex="0">Yes</button>

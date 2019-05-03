@@ -39,6 +39,9 @@ import { TypeaheadModule  } from 'ngx-bootstrap';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AccordionCommonComponent } from './components/accordion/accordion.component';
 import { ButtonComponent } from './components/button/button.component';
+import { RadioComponent } from './components/radio/radio.component';
+import { ProvinceComponent } from './components/province/province.component';
+import { CountryComponent } from './components/country/country.component';
 
 @NgModule({
   imports: [
@@ -84,7 +87,10 @@ import { ButtonComponent } from './components/button/button.component';
     NameComponent,
     AddressComponent,
     AccordionCommonComponent,
-    ButtonComponent
+    ButtonComponent,
+    RadioComponent,
+    ProvinceComponent,
+    CountryComponent
   ],
   exports: [
     CoreBreadcrumbComponent,
@@ -115,7 +121,11 @@ import { ButtonComponent } from './components/button/button.component';
     NameComponent,
     AddressComponent,
     AccordionCommonComponent,
-    ButtonComponent
+    ButtonComponent,
+    ToggleComponent,
+    RadioComponent,
+    ProvinceComponent,
+    CountryComponent
   ],
   providers: [
     NgForm
