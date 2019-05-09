@@ -1,0 +1,44 @@
+.content {
+    color: #036;
+    background-color: #f2f2f2;
+}
+
+/* Note - these styles may only work for desktop sizes, may need to add bps */
+.content h1, .content .breadcrumb {
+    background: #036;
+    color: white !important;
+    padding: 1em;
+    width: calc(100% + 320px);
+    margin-left: -30px;
+    margin-top: -15px;
+    border-radius: 0;
+    padding-left: 1em !important;
+    border-bottom: 2px solid #fcba19;
+}
+
+.content .table {
+    background: #fcfcfc;
+}
+
+@font-face {
+    font-family: 'Myriad-Pro';
+    src: url('./fonts/MyriadWebPro.ttf');
+}
+
+body {
+    font-family: Myriad-Pro, Calibri, Arial, sans serif !important;
+}
+
+/* Max width for "Design Guidlines" paragraph text, makes it more readable. */
+#c-readme p {
+    max-width: 900px;
+}
+
+/* The headers for the .md files for each component, inside the tab. */
+h1#design-guidelines {
+    background: none;
+    border: none;
+    color: #036 !important;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}

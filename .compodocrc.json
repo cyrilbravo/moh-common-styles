@@ -2,10 +2,38 @@
     "$schema": "./node_modules/@compodoc/compodoc/src/config/schema.json",
     "name": "moh-common-lib",
     "hideGenerator": true,
-    "theme": "gitbook",
+    "theme": "stripe",
     "output": "docs",
     "includes": "./additional-doc/",
     "toggleMenuItems": [
-        "components"
+        "components",
+        "modules"
+    ],
+    "extTheme": "./doc-styles/",
+    "navTabConfig": [
+        {
+            "id": "info",
+            "label": "Info"
+        },
+        {
+            "id": "readme",
+            "label": "Design Guidelines"
+        },
+        {
+            "id": "source",
+            "label": "Source"
+        },
+        {
+            "id": "templateData",
+            "label": "Template"
+        },
+        {
+            "id": "tree",
+            "label": "DOM Tree"
+        },
+        {
+            "id": "example",
+            "label": "Example"
+        }
     ]
 }

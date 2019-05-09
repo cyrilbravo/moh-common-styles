@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
     </head>
     <body>
 
@@ -43,13 +44,13 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
+            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab" data-link="readme">Design Guidelines</a>
+        </li>
+        <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -438,6 +439,13 @@ need be.</p>
 
 </div>
 
+    <div class="tab-pane fade " id="c-readme">
+        <p><h1 id="design-guidelines">Design Guidelines</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, magnam ipsam. Sit quasi natus architecto rerum unde non provident! Quia nisi facere amet iste mollitia voluptatem non molestias esse optio?</p>
+<p>Aperiam fugiat consectetur temporibus, iste repellat, quisquam sapiente nisi distinctio optio, autem nemo tenetur error eum voluptatibus ab accusamus quis voluptatum blanditiis. Quam et ut reprehenderit vitae nobis, at ipsum!</p>
+<p>Exercitationem pariatur animi repudiandae corporis obcaecati ratione ducimus beatae quam, nostrum magnam unde numquam quidem cupiditate odit id. Beatae alias molestiae, optio incidunt harum quia voluptates deserunt sequi. Nesciunt, optio.</p>
+</p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Output, EventEmitter, forwardRef } from &#x27;@angular/core&#x27;;
@@ -495,55 +503,6 @@ export class FormSubmitBarComponent implements OnInit {
     &lt;/ng-template&gt;</code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./form-submit-bar.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">@import &#x27;variables.scss&#x27;;
-
-.form-action-bar {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1em;
-    background-color: hsla(210, 30%, 85%, 1);
-    transition: background-color 0.3s;
-    &amp;.disabled { background-color: hsla(210, 10%, 85%, 1); }
-    
-    // If browser does not support positiion sticky (IE11), gracefully degrade
-    // back to default positioning (static). We do not use position: fixed, as
-    // that leads this bar to overlap the page footer.
-    position: -webkit-sticky;
-    position: sticky;
-    bottom: 0;
-    z-index: 10;
-    // Positioning  values match .container-fluid in app.component.scss
-    left: $container-gutter-size;
-    right: $container-gutter-size;
-
-    @include media-breakpoint-down(md){
-        left: ($container-gutter-size / 2);
-        right: ($container-gutter-size / 2);
-    }
-
-    @include media-breakpoint-down(sm){
-        left: 0;
-        right: 0;
-    }
-}
-
-.submit {
-    min-width: 240px;
-
-    @include media-breakpoint-down(sm){
-        min-width: 100%;
-    }
-}
-
-.btn{
-    white-space:normal !important;
-    word-wrap: break-word;
-}</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
@@ -571,7 +530,7 @@ export class FormSubmitBarComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="form-action-bar form-bar" [ngClass]="{disabled: !canContinue, \'mx-lg-n5 mx-md-n3 mb-n3 mt-3\': increaseWidth}">        <button class="btn btn-lg {{defaultColor ? \'btn-primary\' : \'btn-secondary\' }} submit"                [ngClass]="{disabled: !canContinue || isLoading}"                type=\'submit\'>          <ng-container *ngIf="!isLoading; else loadingSpinner"> {{submitLabel}} </ng-container>                  </button>    </div>        <ng-template #loadingSpinner>        <i class="fa fa-spinner fa-pulse fa-fw"></i>    </ng-template></div>'
-    var COMPONENTS = [{'name': 'CaptchaComponent', 'selector': 'common-captcha'},{'name': 'CoreBreadcrumbComponent', 'selector': 'common-core-breadcrumb'},{'name': 'DateComponent', 'selector': 'common-date'},{'name': 'DatepickerComponent', 'selector': 'common-datepicker'},{'name': 'DropdownComponent', 'selector': 'common-dropdown'},{'name': 'FileUploaderComponent', 'selector': 'common-file-uploader'},{'name': 'FormActionBarComponent', 'selector': 'common-form-action-bar'},{'name': 'FormSubmitBarComponent', 'selector': 'common-form-submit-bar'},{'name': 'PageFrameworkComponent', 'selector': 'common-page-framework'},{'name': 'PageSectionComponent', 'selector': 'common-page-section'},{'name': 'PasswordComponent', 'selector': 'common-password'},{'name': 'PostalCodeComponent', 'selector': 'common-postal-code'},{'name': 'ThumbnailComponent', 'selector': 'common-thumbnail'},{'name': 'ToggleComponent', 'selector': 'common-toggle'},{'name': 'WizardProgressBarComponent', 'selector': 'common-wizard-progress-bar'}];
+    var COMPONENTS = [{'name': 'AddressComponent', 'selector': 'common-address'},{'name': 'ButtonGroupComponent', 'selector': 'common-button-group'},{'name': 'CaptchaComponent', 'selector': 'common-captcha'},{'name': 'CityComponent', 'selector': 'common-city'},{'name': 'CoreBreadcrumbComponent', 'selector': 'common-core-breadcrumb'},{'name': 'CountryComponent', 'selector': 'common-country'},{'name': 'DateComponent', 'selector': 'common-date'},{'name': 'DatepickerComponent', 'selector': 'common-datepicker'},{'name': 'DropdownComponent', 'selector': 'common-dropdown'},{'name': 'FileUploaderComponent', 'selector': 'common-file-uploader'},{'name': 'FormActionBarComponent', 'selector': 'common-form-action-bar'},{'name': 'FormSubmitBarComponent', 'selector': 'common-form-submit-bar'},{'name': 'PageFrameworkComponent', 'selector': 'common-page-framework'},{'name': 'PageSectionComponent', 'selector': 'common-page-section'},{'name': 'PasswordComponent', 'selector': 'common-password'},{'name': 'PostalCodeComponent', 'selector': 'common-postal-code'},{'name': 'ProvinceComponent', 'selector': 'common-province'},{'name': 'StreetComponent', 'selector': 'common-street'},{'name': 'ThumbnailComponent', 'selector': 'common-thumbnail'},{'name': 'ToggleComponent', 'selector': 'common-toggle'},{'name': 'WizardProgressBarComponent', 'selector': 'common-wizard-progress-bar'}];
     var DIRECTIVES = [{'name': 'DateFieldFormatDirective', 'selector': '[commonDateFieldFormat]'},{'name': 'DayValidationDirective', 'selector': '[commonDayValidation]'},{'name': 'YearValidateDirective', 'selector': '[commonYearValidate]'}];
     var ACTUAL_COMPONENT = {'name': 'FormSubmitBarComponent'};
 </script>

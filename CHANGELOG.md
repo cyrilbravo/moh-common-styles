@@ -1,15 +1,34 @@
-# [Unreleased](https://github.com/bcgov/moh-common-styles/compare/v0.0.30...7d2e7cd) "moh-common-lib" (2019-04-30)
+# [Unreleased](https://github.com/bcgov/moh-common-styles/compare/v0.0.31...9f5a04e) "moh-common-lib" (2019-05-08)
+
+
+### Documentation
+
+* Basic styling to use BC Gov colours and fonts ([7226b37](https://github.com/bcgov/moh-common-styles/commit/7226b37))
+* Create design guidelines markdown file for each component ([9f5a04e](https://github.com/bcgov/moh-common-styles/commit/9f5a04e))
+
+
+### Features
+
+* **ButtonGroupComponent:** Create ButtonGroupComponent with ControlValueAccessor ([22710b7](https://github.com/bcgov/moh-common-styles/commit/22710b7))
+* **Documentation:** Customize tabs in docs, adding "Design Guidelines" ([df678e6](https://github.com/bcgov/moh-common-styles/commit/df678e6))
+
+
+
+## [0.0.31](https://github.com/bcgov/moh-common-styles/compare/v0.0.30...v0.0.31) "moh-common-lib" (2019-05-07)
 
 
 ### Bug Fixes
 
 * **AddressComponent:** Include Typeahead module necessary to compile. ([7d2e7cd](https://github.com/bcgov/moh-common-styles/commit/7d2e7cd))
+* **CaptchaComponent:** Add `autocomplete="false"` to CAPTCHA ([18d69c6](https://github.com/bcgov/moh-common-styles/commit/18d69c6))
 
 
 ### Features
 
 * **AddressComponent:** Create AddressComponent copied from prime-web. ([238c01d](https://github.com/bcgov/moh-common-styles/commit/238c01d))
 * **AddressComponent:** Implement NG_VALUE_ACCESSOR for reactive forms. ([8d79d30](https://github.com/bcgov/moh-common-styles/commit/8d79d30))
+* **AddressComponent:** Split AddressComponent into City/Country/Province Components ([3a98fb0](https://github.com/bcgov/moh-common-styles/commit/3a98fb0))
+* **E2E:** Create AbstractTestPage in moh-common-lib/e2e ([c347c39](https://github.com/bcgov/moh-common-styles/commit/c347c39))
 
 
 
