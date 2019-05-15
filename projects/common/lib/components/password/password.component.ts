@@ -38,6 +38,8 @@ export interface PasswordErrorMsg {
  *                      (passwordChange)="setNewPassword($event)"></common-password>
  *
  * @export
+ * 
+ * <example-url>/moh-common-styles/demo/index.html?component=PasswordComponent</example-url>
  */
 @Component({
   selector: 'common-password',
