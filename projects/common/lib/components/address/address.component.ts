@@ -28,7 +28,7 @@ import { ProvinceList, BRITISH_COLUMBIA } from '../province/province.component';
  *
  * @export
  *
- * <example-url>/moh-common-styles/demo/index.html?component=AddressComponent</example-url>
+ * <example-url>/moh-common-styles/demo/AddressComponent</example-url>
  */
 
 @Component({
