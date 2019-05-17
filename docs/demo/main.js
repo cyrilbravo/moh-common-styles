@@ -329,10 +329,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 var router_1 = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
 var password_demo_component_1 = __webpack_require__(/*! ../components/password-demo/password-demo.component */ "./src/components/password-demo/password-demo.component.ts");
+var address_demo_component_1 = __webpack_require__(/*! ../components/address-demo/address-demo.component */ "./src/components/address-demo/address-demo.component.ts");
 var routes = [
     {
         path: 'PasswordComponent',
         component: password_demo_component_1.PasswordDemoComponent
+        // NOTE - Below is not implemented, just proposed.
+        // data: {
+        //     componentLabel: 'Password',
+        //     showPasswordStrength: true,
+        //     selector: 'common-password',
+        // }
+    },
+    {
+        path: 'AddressComponent',
+        component: address_demo_component_1.AddressDemoComponent
     },
     {
         path: '**',
@@ -432,8 +443,10 @@ var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ ".
 var core_1 = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 var app_component_1 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var password_demo_component_1 = __webpack_require__(/*! ../components/password-demo/password-demo.component */ "./src/components/password-demo/password-demo.component.ts");
+var address_demo_component_1 = __webpack_require__(/*! ../components/address-demo/address-demo.component */ "./src/components/address-demo/address-demo.component.ts");
 var app_routing_module_1 = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 var moh_common_lib_1 = __webpack_require__(/*! moh-common-lib */ "../../node_modules/moh-common-lib/fesm5/moh-common-lib.js");
+var http_1 = __webpack_require__(/*! @angular/common/http */ "../../node_modules/@angular/common/fesm5/http.js");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -441,12 +454,14 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                password_demo_component_1.PasswordDemoComponent
+                password_demo_component_1.PasswordDemoComponent,
+                address_demo_component_1.AddressDemoComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
-                moh_common_lib_1.SharedCoreModule
+                moh_common_lib_1.SharedCoreModule,
+                http_1.HttpClientModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
@@ -455,6 +470,68 @@ var AppModule = /** @class */ (function () {
     return AppModule;
 }());
 exports.AppModule = AppModule;
+
+
+/***/ }),
+
+/***/ "./src/components/address-demo/address-demo.component.css":
+/*!****************************************************************!*\
+  !*** ./src/components/address-demo/address-demo.component.css ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9qZWN0cy9kZW1vL3NyYy9jb21wb25lbnRzL2FkZHJlc3MtZGVtby9hZGRyZXNzLWRlbW8uY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/components/address-demo/address-demo.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/components/address-demo/address-demo.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h4>Default Address</h4>\n\n<common-address componentLabel=\"Address\" [disabled]=\"disabled\"></common-address>\n\n<h4> Adress with State: Disabled</h4>\n\n<common-address componentLabel=\"Address\" [disabled]=\"true\"></common-address>\n\n<h4> Adress with Dropdown List </h4>\n\n<!--\n<common-country label=\"Country\"\n                  [countryList]=\"countryList\"\n                  [required]=\"isRequired\"\n                  [disabled]=\"disabled\" ></common-country>\n\n\n<common-province label=\"Province/State\"\n                     [provinceList]=\"provList\"\n                     [required]=\"isRequired\"\n                     [disabled]=\"disabled\"\n                     placeholder=\"Select a Province\"></common-province>\n\n<common-street label=\"Full street address or rural route\"\n                     [useGeoCoder]=\"useGeoCoder()\"\n                     [required]=\"isRequired\"\n                     [disabled]=\"disabled\"></common-street>\n\n<common-city label=\"City\"\n                 [required]=\"isRequired\"\n                 [disabled]=\"disabled\"></common-city>\n\n<common-postal-code [label]=\"'Postal Code'\"\n                 [displayMask]=\"isCanada()\"\n                 [disabled]=\"disabled\"\n                 [required]=\"isRequired\"></common-postal-code>\n-->"
+
+/***/ }),
+
+/***/ "./src/components/address-demo/address-demo.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/components/address-demo/address-demo.component.ts ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var AddressDemoComponent = /** @class */ (function () {
+    function AddressDemoComponent() {
+    }
+    AddressDemoComponent.prototype.ngOnInit = function () {
+    };
+    AddressDemoComponent = __decorate([
+        core_1.Component({
+            selector: 'app-address-demo',
+            template: __webpack_require__(/*! ./address-demo.component.html */ "./src/components/address-demo/address-demo.component.html"),
+            styles: [__webpack_require__(/*! ./address-demo.component.css */ "./src/components/address-demo/address-demo.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AddressDemoComponent);
+    return AddressDemoComponent;
+}());
+exports.AddressDemoComponent = AddressDemoComponent;
 
 
 /***/ }),
@@ -477,7 +554,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Default</h4>\n\n<common-password componentLabel=\"Password\" [showPasswordStrength]=\"true\"></common-password>"
+module.exports = "<h4>Default</h4>\n\n<div class=\"form-group col-sm-8 p-sm-0\">\n  <common-password componentLabel=\"Password\" [showPasswordStrength]=\"true\"></common-password>\n</div>\n"
 
 /***/ }),
 
