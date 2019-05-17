@@ -12,7 +12,24 @@ import { GeoAddressResult } from '../../../services/src/geocoder.service';
 import { Address } from '../../../models/src/address.model';
 import { CountryList, CANADA, UNITED_STATES } from '../country/country.component';
 import { ProvinceList, BRITISH_COLUMBIA } from '../province/province.component';
-
+/**
+ * AddressComponent
+ *
+ * @example
+ *    <div class="form-group col-sm-8 p-sm-0">
+ *    <common-country name="country_{{objectId}}"
+ *                     label="Country"
+ *                     [countryList]="countryList"
+ *                     [ngModel]="addr?.country"
+ *                     (ngModelChange)="setCountry($event)"
+ *                     [required]="isRequired"
+ *                     [disabled]="disabled" ></common-country>
+ *     </div>
+ *
+ * @export
+ *
+ * <example-url>/moh-common-styles/demo/index.html?component=AddressComponent</example-url>
+ */
 
 @Component({
   selector: 'common-address',
