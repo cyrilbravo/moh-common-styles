@@ -13,7 +13,7 @@ import { Address } from '../../../models/src/address.model';
 import { CountryList, CANADA, UNITED_STATES } from '../country/country.component';
 import { ProvinceList, BRITISH_COLUMBIA } from '../province/province.component';
 /**
- * AddressComponent
+ * AddressComponent - HAS BEEN CHANGED
  *
  * @example
  *    <div class="form-group col-sm-8 p-sm-0">
